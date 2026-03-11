@@ -1,0 +1,90 @@
+
+    <a href="{% url 'second' %}">  </a> 
+    <br>
+    <form action="{% url 'takeinput'%}" method ="POST">
+        {% csrf_token %}
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Root Causes: Investigating Vegetable Price Hikes</title>
+            <!-- <form action="{% url 'takeinput'%}" method ="POST"></form> -->
+            {% comment %} <form action="{% url 'takeinput'%}" method ="POST">
+              {% csrf_token %} {% endcomment %}
+            <style>
+              body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #f4f4f4;
+              }
+              #welcome-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+              }
+              #project-name {
+                font-size: 36px;
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 20px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+              }
+              #project-description {
+                font-size: 18px;
+                color: #666;
+                margin-bottom: 30px;
+              }
+              #start-button {
+                background-color: #4CAF50;
+                color: white;
+                padding: 15px 30px;
+                font-size: 18px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+              }
+              #start-button:hover {
+                background-color: #45a049;
+              }
+              #vegetable-img {
+                width: 400px;
+                height: auto;
+                margin-bottom: 30px;
+              }
+            
+            </style>
+          </head>
+          
+          <body>
+          <div id="welcome-container">
+            <img id="vegetable-img" src="https://media.post.rvohealth.io/wp-content/uploads/2020/08/fruits-and-vegetables-thumb-1-732x549.jpg" alt="Vegetable Icon">
+            <div id="project-name">Root Causes: Investigating Vegetable Price Hikes</div>
+            <div id="project-description">Embark on a journey to uncover the hidden reasons behind the fluctuating prices of vegetables in the market.</div>
+            <!-- <button onclick="window.location.href='/indexx';"> -->
+                <input  type="checkbox" name="user_name1" id="user_namee1" > <label for ="user_name1" value="a">Feeling nervous, restless or tense.</label>
+              <button type="submit" style="height: 50px; width: 200px"><h3>Submit </button>
+          </div>
+          <!-- <body>
+          
+            
+            <script>
+                document.getElementById("next-button/").addEventListener("click", function() {
+                    window.location.href = "{% url 'next_page' %}";
+                });
+            </script>
+          </body> -->
+           
+          
+          <div id="leaf-pattern"></div>
+          
+          </body>
+          </html>
+                <button type="submit" style="height: 50px; width: 200px"><h3>Submit </button>
+                
+        </p>
+    </h3>
+    </form>

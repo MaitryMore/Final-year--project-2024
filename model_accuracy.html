@@ -1,0 +1,254 @@
+{% comment %} {% comment %} {% comment %} {% comment %} {% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20;
+            padding: 20;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #343a40;
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section-heading {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .section-content {
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+        }
+        .info-box {
+            background-color: #17a2b8;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .info-box p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Data Science Dashboard</h1>
+    </div>
+    <div class="container">
+        <div class="section">
+            <div class="section-heading">
+                <h2>Random Forest Model</h2>
+            </div>
+            <div class="section-content">
+                <p>Random Forest is an ensemble learning method used for classification and regression tasks. It constructs a multitude of decision trees during training and outputs the mode of the classes (classification) or the mean prediction (regression) of the individual trees.</p>
+                <p>Random Forest is chosen for its ability to handle complex datasets, handle missing values, and provide feature importance estimation.</p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-heading">
+                <h2>Model Training</h2>
+            </div>
+            <div class="section-content">
+                <p>The Random Forest model was trained using a dataset containing various features related to market prices, demand, supply, weather conditions, etc.</p>
+                <p>The training process involved splitting the dataset into training and testing sets with an 80:20 ratio. The model was then trained on the training set and evaluated on the testing set to measure its accuracy.</p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-heading">
+                <h2>Model Accuracy</h2>
+            </div>
+            <div class="section-content">
+                <div class="info-box" id="training-accuracy">
+                    <p><strong>Training Accuracy:</strong> Calculating...</p>
+                    <p><strong>Training Accuracy:</strong> {{ training_accuracy }}</p>
+            
+                </div>
+                <div class="info-box" id="testing-accuracy">
+                    <p><strong>Testing Accuracy:</strong> Calculating...</p>
+                    <p><strong>Testing Accuracy:</strong> {{ testing_accuracy }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-heading">
+                <h2>Django Framework</h2>
+            </div>
+            <div class="section-content">
+                <p>Django is a high-level Python web framework that promotes rapid development and clean, pragmatic design. It follows the MVC (Model-View-Controller) architecture pattern and provides a robust set of tools for building web applications.</p>
+                <p>Django was chosen for its built-in features like ORM, authentication, admin interface, and template engine, which streamline web development and ensure security and scalability.</p>
+            </div>
+        </div>
+        <div class="info-box">
+            <p><strong>Training/Test Split Ratio:</strong> 80% training, 20% testing</p>
+        </div>
+    </div>
+    <script>
+        // Fetch training and testing accuracy from the server
+        fetch('/model_accuracy')
+            .then(response => response.json())
+            .then(data => {
+                // Update the content of the training accuracy info-box
+                document.getElementById('training-accuracy').innerHTML = `<p><strong>Training Accuracy:</strong> ${data.training_accuracy}</p>`;
+                // Update the content of the testing accuracy info-box
+                document.getElementById('testing-accuracy').innerHTML = `<p><strong>Testing Accuracy:</strong> ${data.testing_accuracy}</p>`;
+            })
+ {% endcomment %}
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+        }
+        .header {
+            background-color: #35424a;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #35424a;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section-heading {
+            background-color: #6c757d;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .section-content {
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+        }
+        .info-box {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .info-box p {
+            margin: 0;
+        }
+        .accuracy-box {
+            background-color: #28a745;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Data Science Dashboard</h1>
+    </div>
+    <div class="container">
+        <div class="section">
+            <div class="section-heading">
+                <h2>Random Forest Model</h2>
+            </div>
+            <div class="section-content">
+                <p>Random Forest is an ensemble learning method used for classification and regression tasks. It constructs a multitude of decision trees during training and outputs the mode of the classes (classification) or the mean prediction (regression) of the individual trees.</p>
+                <p>Random Forest is chosen for its ability to handle complex datasets, handle missing values, and provide feature importance estimation.</p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-heading">
+                <h2>Model Training</h2>
+            </div>
+            <div class="section-content">
+                <p>The Random Forest model was trained using a dataset containing various features related to market prices, demand, supply, weather conditions, etc.</p>
+                <p>The training process involved splitting the dataset into training and testing sets with an 80:20 ratio. The model was then trained on the training set and evaluated on the testing set to measure its accuracy.</p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-heading">
+                <h2>Model Accuracy</h2>
+            </div>
+            <div class="section-content">
+                <div class="accuracy-box" id="training-accuracy">
+                    <p><strong>Training Accuracy:</strong> Calculating...</p>
+                    <p><strong>Training Accuracy:</strong> {{ training_accuracy }}</p>
+                </div>
+                <div class="accuracy-box" id="testing-accuracy">
+                    <p><strong>Testing Accuracy:</strong> Calculating...</p>
+                    <p><strong>Testing Accuracy:</strong> {{ testing_accuracy }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-heading">
+                <h2>Django Framework</h2>
+            </div>
+            <div class="section-content">
+                <p>Django is a high-level Python web framework that promotes rapid development and clean, pragmatic design. It follows the MVC (Model-View-Controller) architecture pattern and provides a robust set of tools for building web applications.</p>
+                <p>Django was chosen for its built-in features like ORM, authentication, admin interface, and template engine, which streamline web development and ensure security and scalability.</p>
+            </div>
+        </div>
+        <div class="info-box">
+            <p><strong>Training/Test Split Ratio:</strong> 80% training, 20% testing</p>
+        </div>
+    </div>
+    {% comment %} <script>
+        // Simulate fetching training and testing accuracy from the server
+        // Replace this with actual fetching code
+        // For demonstration purposes, I'll use setTimeout to simulate asynchronous behavior
+        setTimeout(() => {
+            // Update the content of the training accuracy info-box
+            document.getElementById('training-accuracy').innerHTML = `<p><strong>Training Accuracy:</strong> 95%</p>`;
+            // Update the content of the testing accuracy info-box
+            document.getElementById('testing-accuracy').innerHTML = `<p><strong>Testing Accuracy:</strong> 90%</p>`;
+        }, 20000); // Simulate a delay of 2 seconds
+    </script> {% endcomment %}
+</body>
+</html>

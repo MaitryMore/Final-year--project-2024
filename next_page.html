@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hey..!! Can you help me by giving some inputs</title>
+<form method="post" action="{% url 'takeinput' %}">
+    {% csrf_token %}
+<style>
+    body {
+        font-family: Verdana, Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+    }
+    #container {
+        max-width: 1400px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        color: #454545;
+        text-align: center;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type="text"],
+    input[type="email"],
+    select,
+    input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url('data:image/svg+xml;utf8,<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+        background-repeat: no-repeat;
+        background-position-x: calc(100% - 10px);
+        background-position-y: center;
+    }
+    input[type="submit"] {
+        background-color: #2ecc71;
+        color: #fff;
+        border: none;
+        padding: 15px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+    input[type="submit"]:hover {
+        background-color: #27ae60;
+    }
+</style>
+</head>
+<body>
+<div id="container">
+    <h1>*Enter Details*</h1>
+    <form action="{% url 'takeinput'%}" method="POST">
+        {% csrf_token %}
+        <label for="name">Enter Your Name</label>
+        <input type="text" name="name" id="name" placeholder="Enter name" required>
+        
+        <label for="email">Enter Your Email Address</label>
+        <input type="email" name="email" id="email" placeholder="example@gmail.com" required>
+
+        <label for="user_name1">Crop Rotation</label>
+        <select id="user_name1" name="user_name1" required>
+            <option value="">Select</option>
+            <option value="Biennial">Biennial</option>
+            <option value="Yearly">Yearly</option>
+            <option value="Perennial">Perennial</option>
+        </select>
+         <!-- <input type="checkbox" name="user_name2" id="user_namee2" > <label for ="user_name2" value="b">Having a sense of impending danger, panic or doom.</label> -->
+         <br> 
+         <label for="user_name2">Weather Change:</label>
+         <select id="user_namee2" name="user_name2" required>
+             <option value="">Select</option>
+             <option value="Yes">Yes</option>
+             <option value="No">No</option>
+         </select>  
+         <br> 
+         <br>
+     <!-- <input type="checkbox" name="user_name3" id="user_namee3" > <label for ="user_name3" value="c">Having an increased heart rate</label> -->
+     <label for="user_name3">Yield Predicted by Farmer (In tons):</label>
+     <input type="number" id="user_namee3" name="user_name3" required>       
+     <br> 
+     <br> 
+     <!-- <input type="checkbox" name="user_name4" id="user_namee4" > <label for ="user_name4" value="d">Breathing rapidlyhyperventilation</label> -->
+     <label for="user_name4">Actual Harvested Yield (In tons):</label>
+     <input type="number" id="user_namee4" name="user_name4" required>  
+     <br> 
+     <br> 
+     <!-- <input type="checkbox" name="user_name5" id="user_namee5" > <label for ="user_name5" value="e">Panic attacks</label> -->
+     <label for="user_name5">Actual Distributed Yield(In tons):</label>
+     <input type="number" id="user_namee5" name="user_name5" required>
+     <br> 
+     <br> 
+     <!-- <input type="checkbox" name="user_name6" id="user_namee6" > <label for ="user_name6" value="f">Fear of future panic attacks</label> -->
+     <label for="user_name6">Crop Type:</label>
+     <select id="user_namee6" name="user_name6" required>
+         <option value="">Select</option>
+         <option value="Kharif">Kharif</option>
+         <option value="Rabi">Rabi</option>
+     </select>
+     <br> 
+     <br> 
+     <!-- <input type="checkbox" name="user_name7" id="user_namee7" > <label for ="user_name7" value="g">Avoidance behaviors</label> -->
+     <label for="user_name7">Sowing Date (Month):</label>
+     <select id="user_namee7" name="user_name7" required>
+         <option value="">Select</option>
+         <option value="1">January</option>
+         <option value="2">February</option>
+         <option value="3">March</option>
+         <option value="4">April</option>
+         <option value="5">May</option>
+         <option value="6">June</option>
+         <option value="7">July</option>
+         <option value="8">August</option>
+         <option value="9">September</option>
+         <option value="10">October</option>
+         <option value="11">November</option>
+         <option value="12">December</option>
+     </select>
+     <br> 
+     <br> 
+     <!-- <input type="checkbox" name="user_name8" id="user_namee8" > <label for ="user_name8" value="h">Anticipatory anxiety</label> -->
+     <label for="user_name8">Harvest Date (Month):</label>
+     <select id="user_namee8" name="user_name8" required>
+         <option value="">Select</option>
+         <option value="1">January</option>
+         <option value="2">February</option>
+         <option value="3">March</option>
+         <option value="4">April</option>
+         <option value="5">May</option>
+         <option value="6">June</option>
+         <option value="7">July</option>
+         <option value="8">August</option>
+         <option value="9">September</option>
+         <option value="10">October</option>
+         <option value="11">November</option>
+         <option value="12">December</option>
+         <!-- Add other months -->
+     </select> 
+     <br> 
+     <br> 
+     <!-- <input type="checkbox" name="user_name9" id="user_namee9" > <label for ="user_name9" value="i">Delusions</label> -->
+     <label for="user_name9">Crop Quality Rating (1->Best...5->Worst):</label>
+     <select id="user_namee9" name="user_name9" required>
+         <option value="">Select</option>
+         <option value="1">1</option>
+         <option value="2">2</option>
+         <option value="3">3</option>
+         <option value="4">4</option>
+         <option value="5">5</option>
+         
+     </select>
+     <!-- <h2>Government Agent Input Form</h2> -->
+     <br> 
+     <br>
+     <!-- <input type="checkbox" name="user_name10" id="user_namee10"> <label for ="user_name10" value="j">Hallucinations</label> -->
+     <label for="user_name10">Market Prices(INR) per quintal:</label>
+     <input type="number" id="user_namee10" name="user_name10" required><br><br>
+     {% comment %} <br> 
+     <br>  {% endcomment %}
+     <!-- <input type="checkbox" name="user_name11" id="user_namee11"> <label for ="user_name11" value="k">disorganized thinkimg and speech</label> -->
+     <label for="user_name11">Market Demand( In tons):</label>
+     <input type="number" id="user_namee11" name="user_name11" required>
+     <br> 
+    <br> 
+     <!-- <input type="checkbox" name="user_name12" id="user_namee12"> <label for ="user_name12" value="l">Abnormal motor behaivior</label> -->
+     <label for="user_name12">Market Supply (In tons):</label>
+     <input type="number" id="user_namee12" name="user_name12" required>
+     <br> 
+     <br> 
+     <!-- <input type="checkbox" name="user_name13" id="user_namee13"> <label for ="user_name13" value="m">Depressed mood most of the day, nearly every day.</label> -->
+     <label for="user_name13">Government Policies:</label>
+     <select id="user_namee13" name="user_name13">
+         <option value="Favorable">Favorable</option>
+         <option value="Unfavorable">Unfavorable</option>
+         <option value="Unchanged">Unchanged</option>
+     </select>
+     <br> 
+     <br> 
+     <!-- <input type="checkbox" name="user_name14" id="user_namee14"> <label for ="user_name14" value="n">Markedly diminished interest or pleasure in activities most of the day, nearly every day.</label> -->
+     <label for="user_name14">Current Price Spike (Price Hike in Market):</label>
+     <input type="radio" id="user_namee14" name="user_name14" value="Yes">
+     <label for="user_name14">Yes</label>
+     <input type="radio" id="user_namee14" name="user_name14" value="No">
+     <label for="user_name14">No</label><br><br>
+     <br> 
+     <br> 
+     <!-- <input type="checkbox" name="user_name15" id="user_namee15"> <label for ="user_name15" value="o">Changes in appetite that result in weight losses or gains unrelated to dieting.</label>
+         <br> 
+         <br> 
+     <input type="checkbox" name="user_name16" id="user_namee16" > <label for ="user_name16" value="p">Changes in sleeping patterns</label>
+     <br> 
+     <br> 
+     <input type="checkbox" name="user_name17" id="user_namee17" > <label for ="user_name17" value="q">Significantly low body weight</label>
+         <br> 
+         <br> 
+     <input type="checkbox" name="user_name18" id="user_namee18" > <label for ="user_name18" value="r">Intense fear of gaining weight or becoming fat</label>
+     <br> 
+     <br> 
+     <input type="checkbox" name="user_name19" id="user_namee19" > <label for ="user_name19" value="s">Distorted body image</label>
+     <br> 
+     <br> 
+     <input type="checkbox" name="user_name20" id="user_namee20" > <label for ="user_name20" value="t">Refusal to maintain a healthy weight</label>
+         <br>
+         <br>  -->
+
+        <!-- Add other fields similarly -->
+        <button type="submit">Submit</button>
+    </form>
+        {% comment %} <input type="submit" value="Submit">
+    </form> {% endcomment %}
+</div>
+</body>
+</html>
